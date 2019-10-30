@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Varsha Bhat</title>
+    <link>http://vnb.github.io/posts/</link>
+    <description>Recent content in Posts on Varsha Bhat</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Oct 2019 20:33:00 -0700</lastBuildDate>
+    
+	<atom:link href="http://vnb.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Support Vector Machine</title>
+      <link>http://vnb.github.io/posts/support-vector-machine/</link>
+      <pubDate>Sun, 27 Oct 2019 20:33:00 -0700</pubDate>
+      
+      <guid>http://vnb.github.io/posts/support-vector-machine/</guid>
+      <description> Introduction to SVM Support Vector Machines are the most commonly used supervised learning algorithms for classification problems. This post discusses the mathematics/intuition behind Linear SVM algorithms with a light introduction to Lagrange multipliers which is used for the optimization part. Problem statement: In a 2-D space there are 2 sets of points represented by their coordinates (x1, x2) and their labels represented by y with values 1 or -1.   Steve Francia   </description>
+    </item>
+    
+  </channel>
+</rss>
