@@ -68,19 +68,67 @@
 
 <p>Support Vector Machines are the most commonly used supervised learning algorithms for classification problems. This post discusses the mathematics/intuition behind Linear SVM algorithms with a light introduction to Lagrange multipliers which is used for the optimization part.</p>
 
-<h2 id="problem-statement">Problem statement:</h2>
+<h2 id="linear-svm">Linear SVM:</h2>
 
 <p>In a 2-D space there are 2 sets of points represented by their coordinates (x1, x2) and their labels represented by y with values 1 or -1.</p>
 
+<p><img src="/img/2-D classification problem.png" alt="Image with caption" /></p>
+
 <p><img src="https://latex.codecogs.com/gif.latex?\inline&space;\fn_phv&space;y&space;\in&space;\{-1,&space;1&space;\}" title="y \in \{-1, 1 \}" /></p>
 
-<p><img src="/img/LinearSVM.png" alt="Image with caption" /></p>
+<p>The objective of this problem is to find a hyperplane s.t it perfectly classifies the two sets of points as shown below. A hyperplane in this case is a straight line that partitions the two sets of points.</p>
 
-<p><img src="/img/2-D classification problem.png" alt="Image with caption" /></p>
+<p><img src="https://latex.codecogs.com/gif.latex?w^T.X&space;&plus;&space;b&space;=&space;0" title="w^T.X + b = 0" /></p>
+
+<p>Which means, any point lying on either side of this hyperplane satisfies the condition
+<img src="https://latex.codecogs.com/gif.latex?y_i(wx_i&plus;b)&space;\geq&space;1" title="y_i(wx_i+b) \geq 1" />
+Clearly, there can be several such hyperplanes that can separate the two classes. But how do we choose the right hyperplane?</p>
+
+<p><img src="/img/Decisionboundaries.png" alt="Image with caption" /></p>
+
+<p>First lets the understand the concept of geometric margin:</p>
+
+<p><img src="https://latex.codecogs.com/gif.latex?\rho&space;=&space;max_{w,b:&space;yi\(wxi&plus;b\)&space;\geq&space;0}&space;min_{&space;i&space;\in&space;m}&space;\frac{|w*x_i&space;&plus;&space;b|}{||w||}" title="\rho = max_{w,b: yi\(wxi+b\) \geq 0} min_{ i \in m} \frac{|w*x_i + b|}{||w||}" /></p>
+
+<p><img src="https://latex.codecogs.com/gif.latex?min_{i&space;\in&space;m}&space;y_i(w&space;&space;x_i&space;&plus;&space;b)&space;=&space;1" title="min_{i \in m} y_i(w  x_i + b) = 1" /></p>
+
+<p>Therefore,</p>
+
+<p><img src="https://latex.codecogs.com/gif.latex?\rho&space;=&space;max&space;\frac{1}{||w||}&space;\\&space;w;b&space;:&space;\\&space;min_{i&space;\in&space;m}&space;y_i(wx_i&plus;b)=1" title="\rho = max \frac{1}{||w||} \\ w;b : \\ min_{i \in m} y_i(wx_i+b)=1" /></p>
+
+<p>In order to find the right hyperplane we must maximize the geometric margin as shown in the figure below
+<img src="/img/LinearSVM.png" alt="Image with caption" />
+The dashed lines represent the marginal hyperplanes and the closest points to the marginal hyperplanes are +1/-1. These points are the support vectors. For example, in the figure below the support vectors(points closest to the marginal hyperplanes) are colored in green and bright red.</p>
 
 <p><img src="/img/SupportVectors.png" alt="Image with caption" /></p>
 
-<p><img src="/img/Decisionboundaries.png" alt="Image with caption" /></p>
+<p>If the position of these points were to be changed, then the position of the optimized deccision boundary would be effected. Hence, the points closest to the decision boundary determine the positioning of the decision boundary.</p>
+
+<h2 id="optimizing-linear-svm">Optimizing Linear SVM:</h2>
+
+<p>In finding the optimal solution for the hyperplane we previously established that geometric margin must be maximized.
+<img src="https://latex.codecogs.com/gif.latex?max&space;\frac{1}{||w||}" title="max \frac{1}{||w||}" />
+is equivalent to
+<img src="https://latex.codecogs.com/gif.latex?max&space;\frac{1}{2}{||w||^2}" title="max \frac{1}{2}{||w||^2}" />
+subject to:
+<img src="https://latex.codecogs.com/gif.latex?y_i(w.x_i&space;&plus;&space;b)&space;\geq&space;1,&space;\forall&space;i&space;\in&space;[m]" title="y_i(w.x_i + b) \geq 1, \forall i \in [m]" />
+We can use the Lagrangian mutliplier method to solve this optimization problem.
+<img src="https://latex.codecogs.com/gif.latex?\bg_white&space;\mathcal{L}_{(w,&space;b,&space;\alpha)}&space;=&space;\frac&space;{1}{2}{||w||^2&space;}&space;-&space;\sum_{i=1}^{m}&space;\alpha_i[y_i(w.x_i&plus;b)-1]" title="\mathcal{L}_{(w, b, \alpha)} = \frac {1}{2}{||w||^2 } - \sum_{i=1}^{m} \alpha_i[y_i(w.x_i+b)-1]" /></p>
+
+<p><img src="https://latex.codecogs.com/gif.latex?\inline&space;\bg_white&space;\Delta_w&space;\mathcal{L}&space;=&space;w&space;-&space;\sum_{i&space;=&space;1}^{m}&space;\alpha_iy_ix_i&space;=&space;0&space;\Longrightarrow&space;w&space;=&space;\alpha_iy_ix_i" title="\Delta_w \mathcal{L} = w - \sum_{i = 1}^{m} \alpha_iy_ix_i = 0 \Longrightarrow w = \alpha_iy_ix_i" /></p>
+
+<p><img src="https://latex.codecogs.com/gif.latex?\inline&space;\bg_white&space;\Delta_b&space;\mathcal{L}&space;=&space;-&space;\sum_{i&space;=&space;1}^{m}&space;\alpha_iy_i&space;=&space;0&space;\Longrightarrow&space;\sum_{i&space;=&space;1}^{m}&space;\alpha_iy_i&space;=&space;0" title="\Delta_b \mathcal{L} = - \sum_{i = 1}^{m} \alpha_iy_i = 0 \Longrightarrow \sum_{i = 1}^{m} \alpha_iy_i = 0" /></p>
+
+<p><img src="https://latex.codecogs.com/gif.latex?\inline&space;\bg_white&space;\forall&space;\alpha_i[y_i(w.x_i&plus;b)-1]&space;=&space;0&space;\Longrightarrow&space;\alpha_i&space;=&space;0&space;\lor&space;y_i(w.x_i&plus;b)=&space;1" title="\forall \alpha_i[y_i(w.x_i+b)-1] = 0 \Longrightarrow \alpha_i = 0 \lor y_i(w.x_i+b)= 1" /></p>
+
+<p>As we can see, the weights represented by w is a linear combination of training vectors x<sub>1</sub>&hellip;x<sub>m</sub> iff
+<img src="https://latex.codecogs.com/gif.latex?\inline&space;\alpha_i&space;\neq&space;0" title="\alpha_i \neq 0" />
+Furthermore, if the above condition is satisfied, then
+<img src="https://latex.codecogs.com/gif.latex?\inline&space;y_i(w.x_i&plus;b)&space;=&space;1" title="y_i(w.x_i+b) = 1" />
+Therefore, all the support vectors lie on the marginal hyperplanes.</p>
+
+<p>When solving this problem on python, we start by trying to find hyperplanes close to the support vectors(x<sub>1</sub>&hellip;x<sub>m</sub>s that satisfy the above equation) and then optimize for maximum margin by incrementally changing the value of w to find the optimal hyperplane. The result would look something like this. The dashed lines represent less optimal hyperplanes.
+<img src="/img/Decision boundaries after optimization.png" alt="Image with caption" /></p>
 
 
 		
@@ -96,7 +144,7 @@
 
         		<footer>
 			<span>
-			&copy; <time datetime="2019-11-02 13:42:38.45356 -0700 PDT m=&#43;0.099778232">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			&copy; <time datetime="2019-11-05 12:54:22.868356 -0800 PST m=&#43;0.098959303">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
 			</span>
 		</footer>
 
