@@ -3,7 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://vnb.github.io/posts/third-post/</loc>
+    <lastmod>2019-10-27T20:33:00-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://vnb.github.io/posts/</loc>
+    <lastmod>2019-10-27T20:33:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vnb.github.io/posts/second-post/</loc>
     <lastmod>2019-10-27T20:33:00-07:00</lastmod>
   </url>
   
@@ -22,7 +32,15 @@
   </url>
   
   <url>
+    <loc>http://vnb.github.io/posts/boosting/</loc>
+  </url>
+  
+  <url>
     <loc>http://vnb.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://vnb.github.io/posts/fraud-detection/</loc>
   </url>
   
   <url>

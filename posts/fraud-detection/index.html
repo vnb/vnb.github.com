@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Fraud Detection &middot; Varsha Bhat</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Varsha Bhat" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Varsha Bhat</h2>
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="/about/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        
+</div>
+		<h1 class="post-title">Fraud Detection</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>Fraud detection</p>
+
+<p>Most transactions on the internet take place through the use of credit/debit cards in order to complete a purchase. While most transactions are legitimately initiated by a customer, a  small fraction of these transactions are fraudulent. Fraudulent transactions amount to 0.1% of all transactions but the losses from such activities could run upto billions of dollars per year. Therefore, it is important for e-commerce sites and banks likewise to be able to identify fraudulent behavior in a timely manner and in order to do this we can employ machine learning methods.</p>
+
+<p>E-commerce websites store treasure troves of information on past transactions as well as information regarding users. Past transactions that have been flagged can be great source to build a model for predicting fraudulent transactions in the future. However, fraudulent activities are ever changing and adapting to new restrictions on e-commerce platforms.</p>
+
+<p>In the case of transactions in e-commerce websites, companies already has several data points on transactions and the details of people initiating them. This data comes in very handy when trying to identify fraudulent behavior. Some of the most common fraudulent activities in these websites are to charge stolen cards to purchase an item(s) and then initiate a return using a different card for refund or by using a stolen credit card to make large purchases.</p>
+
+<p>In order to understand how fraud can occur we must look into how a transaction takes place between a customer and a merchant, an e-commerce website in this case. There are five important points in this transaction.</p>
+
+<ol>
+<li>Customer</li>
+<li>Merchant</li>
+<li>The Merchants bank</li>
+<li>Customer&rsquo;s bank</li>
+<li>VISA/Mastercard(Card association)</li>
+</ol>
+
+<p>When a customer decides to purchase from the website using a credit card, a transaction is initiated between the merchant and the customer. The merchant has card-reader for physical transactions or takes the customer&rsquo;s credit card information digitally and sends this information to the merchant&rsquo;s bank. The merchants bank then forwards this information to a card association such as VISA/Mastercard who work as custodians/ a clearing houses in the form of a request for the transaction amount. VISA requests the transaction amount from the cardholder&rsquo;s bank, and then the bank sends this money to VISA which in turn transfers the requested amount to the merchants bank.</p>
+
+<p>Merchants such as e-commerce sites and the customers bank can be two critical points for identifying fraudulent transactions. It is in the best interest of e-commerce sites to flag risky transactions in order to reduce loss from fraudulent activities and also to be able to ensure the customer&rsquo;s trust in the company. On the other hand, banks also monitor account and credit card activity in order to caution the customer when their algorithm identifies a risky transaction.</p>
+
+<p>In this post I would like to discuss two ways to detect fraud. In the first section I will discuss an example of fraud detection using supervised learning methods(from the standpoint of an e-commerce site) and in the second, I will discuss an example of credit-card fraud detection using unsupervised learning methods.</p>
+
+<p>In the case of fraud detection from the data of e-commerce website, the following is a sample training set. This data set was taken from Kaggle (<a href="https://www.kaggle.com/vbinh002/fraud-ecommerce">https://www.kaggle.com/vbinh002/fraud-ecommerce</a>).</p>
+
+<p><img src="/img/Fraud Detection 1.png" alt="Image with caption" />
+[](<a href="https://www.notion.so/feae6374f872426288b0e7375464e538#7e4ced9d624b448e9380f52c7c283392">https://www.notion.so/feae6374f872426288b0e7375464e538#7e4ced9d624b448e9380f52c7c283392</a>)</p>
+
+<p>Sample dataset</p>
+
+<p>As this is a supervised learning problem, fraudulent activities are tagged as 0/1 for not fraud or fraud behavior. Each row represents a unique user_id and the features associated with those ids.</p>
+
+<p>From the ip_address we can deduce details on the location and from the device id we can learn about the number of users using the same device. Very often, fraud can be committed by using the same same device with different user  ids. Furthermore, using the same device and on the same ip_address with several user ids can be a strong indicator of fraud. Therefore, part of the feature engineering in this case is to create new features which count the number of users who used the same device and in the same ip address. Once we do this we no longer need the original columns - device_id and ip_address.</p>
+
+<p>The signup and purchase time columns can be converted into separate columns for month, day of week, year and so on using pandas to_datetime function. We then obtain the following set of features after this step.</p>
+
+<p><img src="/img/Fraud Detection 2.png" alt="Image with caption" />
+[](<a href="https://www.notion.so/feae6374f872426288b0e7375464e538#26e107c388114cd0a2b8a6f8d0ffbd4c">https://www.notion.so/feae6374f872426288b0e7375464e538#26e107c388114cd0a2b8a6f8d0ffbd4c</a>)</p>
+
+<p>The only remaining pre-processing step at this point is to convert categorial data types into ordinal values using the scikit learn label encoder. From here on, we can start modeling this data set using RandomForest classifier. Area under the curve is an evaluation metric that can be used here since its a binary classifier problem.</p>
+
+<p>When using a decision tree/random forest classifier, for each prediction we can also obtain the probability of that prediction. This will be helpful in plotting the true postive vs false positive rate curve. To solve this problem I used Stratified KFold which is quite handy when the dataset is not large.
+<img src="/img/Fraud Detection 3.png" alt="Image with caption" />
+[](<a href="https://www.notion.so/feae6374f872426288b0e7375464e538#302e4f283eaa486c8a3dac57febc610e">https://www.notion.so/feae6374f872426288b0e7375464e538#302e4f283eaa486c8a3dac57febc610e</a>)</p>
+
+<p>From the above figure we can see that as increase the true positive rate, we also increase the false positive rate. Therefore it is better to take a conservative approach which might flag negative cases for fraud as positive in order to increase the possibility of flagging fraud cases more accurately. For instance, in the example below, approximately 10 cases were flagged as negative for fraud when their true value was positive for fraud but on the other hand nearly 6000 cases of fraud were correctly identified as fraud.
+<img src="/img/Fraud Detection 4.png" alt="Image with caption" />
+[](<a href="https://www.notion.so/feae6374f872426288b0e7375464e538#79fa5931e7f8487a948af22579ccc75d">https://www.notion.so/feae6374f872426288b0e7375464e538#79fa5931e7f8487a948af22579ccc75d</a>)</p>
+
+<p>If we want to minimize the false positive rate we must chose a cut-off of approximately 0.65 true positive rate  which gives 0.07 false positive rate.<br />
+<img src="/img/Fraud Detection 5.png" alt="Image with caption" />
+[](<a href="https://www.notion.so/feae6374f872426288b0e7375464e538#2794cfa1cea84025a9b8f30d1d997c9c">https://www.notion.so/feae6374f872426288b0e7375464e538#2794cfa1cea84025a9b8f30d1d997c9c</a>)</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/posts/boosting/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			<span>
+			&copy; <time datetime="2019-11-19 15:46:31.680377 -0800 PST m=&#43;0.091681006">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>
