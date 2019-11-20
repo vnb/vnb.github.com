@@ -53,7 +53,7 @@
 	<div class="post">
 		<div class="post-info">
     <span>Written by</span>
-        
+        Varsha Bhat
 </div>
 		<h1 class="post-title">Fraud Detection</h1>
 <div class="post-line"></div>
@@ -82,14 +82,9 @@
 
 <p>Merchants such as e-commerce sites and the customers bank can be two critical points for identifying fraudulent transactions. It is in the best interest of e-commerce sites to flag risky transactions in order to reduce loss from fraudulent activities and also to be able to ensure the customer&rsquo;s trust in the company. On the other hand, banks also monitor account and credit card activity in order to caution the customer when their algorithm identifies a risky transaction.</p>
 
-<p>In this post I would like to discuss two ways to detect fraud. In the first section I will discuss an example of fraud detection using supervised learning methods(from the standpoint of an e-commerce site) and in the second, I will discuss an example of credit-card fraud detection using unsupervised learning methods.</p>
+<p>In this post I will discuss an example of fraud detection using supervised learning methods(from the standpoint of an e-commerce site).A  data set was taken from Kaggle (<a href="https://www.kaggle.com/vbinh002/fraud-ecommerce">https://www.kaggle.com/vbinh002/fraud-ecommerce</a>) as an example on fraud detection.</p>
 
-<p>In the case of fraud detection from the data of e-commerce website, the following is a sample training set. This data set was taken from Kaggle (<a href="https://www.kaggle.com/vbinh002/fraud-ecommerce">https://www.kaggle.com/vbinh002/fraud-ecommerce</a>).</p>
-
-<p><img src="/img/Fraud Detection 1.png" alt="Image with caption" />
-[](<a href="https://www.notion.so/feae6374f872426288b0e7375464e538#7e4ced9d624b448e9380f52c7c283392">https://www.notion.so/feae6374f872426288b0e7375464e538#7e4ced9d624b448e9380f52c7c283392</a>)</p>
-
-<p>Sample dataset</p>
+<p><img src="/img/Fraud Detection 1.png" alt="Sample dataset" /></p>
 
 <p>As this is a supervised learning problem, fraudulent activities are tagged as 0/1 for not fraud or fraud behavior. Each row represents a unique user_id and the features associated with those ids.</p>
 
@@ -97,29 +92,25 @@
 
 <p>The signup and purchase time columns can be converted into separate columns for month, day of week, year and so on using pandas to_datetime function. We then obtain the following set of features after this step.</p>
 
-<p><img src="/img/Fraud Detection 2.png" alt="Image with caption" />
-[](<a href="https://www.notion.so/feae6374f872426288b0e7375464e538#26e107c388114cd0a2b8a6f8d0ffbd4c">https://www.notion.so/feae6374f872426288b0e7375464e538#26e107c388114cd0a2b8a6f8d0ffbd4c</a>)</p>
+<p><img src="/img/Fraud Detection 2.png" alt="Image with caption" /></p>
 
 <p>The only remaining pre-processing step at this point is to convert categorial data types into ordinal values using the scikit learn label encoder. From here on, we can start modeling this data set using RandomForest classifier. Area under the curve is an evaluation metric that can be used here since its a binary classifier problem.</p>
 
 <p>When using a decision tree/random forest classifier, for each prediction we can also obtain the probability of that prediction. This will be helpful in plotting the true postive vs false positive rate curve. To solve this problem I used Stratified KFold which is quite handy when the dataset is not large.
-<img src="/img/Fraud Detection 3.png" alt="Image with caption" />
-[](<a href="https://www.notion.so/feae6374f872426288b0e7375464e538#302e4f283eaa486c8a3dac57febc610e">https://www.notion.so/feae6374f872426288b0e7375464e538#302e4f283eaa486c8a3dac57febc610e</a>)</p>
+<img src="/img/Fraud Detection 3.png" alt="Image with caption" /></p>
 
 <p>From the above figure we can see that as increase the true positive rate, we also increase the false positive rate. Therefore it is better to take a conservative approach which might flag negative cases for fraud as positive in order to increase the possibility of flagging fraud cases more accurately. For instance, in the example below, approximately 10 cases were flagged as negative for fraud when their true value was positive for fraud but on the other hand nearly 6000 cases of fraud were correctly identified as fraud.
-<img src="/img/Fraud Detection 4.png" alt="Image with caption" />
-[](<a href="https://www.notion.so/feae6374f872426288b0e7375464e538#79fa5931e7f8487a948af22579ccc75d">https://www.notion.so/feae6374f872426288b0e7375464e538#79fa5931e7f8487a948af22579ccc75d</a>)</p>
+<img src="/img/Fraud Detection 4.png" alt="Image with caption" /></p>
 
 <p>If we want to minimize the false positive rate we must chose a cut-off of approximately 0.65 true positive rate  which gives 0.07 false positive rate.<br />
-<img src="/img/Fraud Detection 5.png" alt="Image with caption" />
-[](<a href="https://www.notion.so/feae6374f872426288b0e7375464e538#2794cfa1cea84025a9b8f30d1d997c9c">https://www.notion.so/feae6374f872426288b0e7375464e538#2794cfa1cea84025a9b8f30d1d997c9c</a>)</p>
+<img src="/img/Fraud Detection 5.png" alt="Image with caption" /></p>
 
 
 		
 	</div>
 
 	<div class="pagination">
-		<a href="/posts/boosting/" class="right arrow">&#8594;</a>
+		<a href="/about/" class="right arrow">&#8594;</a>
 
 		<a href="#" class="top">Top</a>
 	</div>
@@ -128,7 +119,7 @@
 
         		<footer>
 			<span>
-			&copy; <time datetime="2019-11-19 15:46:31.680377 -0800 PST m=&#43;0.091681006">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			&copy; <time datetime="2019-11-19 20:52:53.488094 -0800 PST m=&#43;0.090151068">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
 			</span>
 		</footer>
 
