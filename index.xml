@@ -41,5 +41,14 @@ Around the same time I began to learn more about data science through a various 
 Most transactions on the internet take place through the use of credit/debit cards in order to complete a purchase. While most transactions are legitimately initiated by a customer, a small fraction of these transactions are fraudulent. Fraudulent transactions amount to 0.1% of all transactions but the losses from such activities could run upto billions of dollars per year. Therefore, it is important for e-commerce sites and banks likewise to be able to identify fraudulent behavior in a timely manner and in order to do this we can employ machine learning methods.</description>
     </item>
     
+    <item>
+      <title>Funnel Analysis - E-commerce Site</title>
+      <link>http://vnb.github.io/posts/funnel-analysis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://vnb.github.io/posts/funnel-analysis/</guid>
+      <description>A funnel tracks all users from the first point of engagement with site to the last point for taking an action. For example, in an e-commerce, a new user will go through the landing page/home-page first, search for a relevant item for purchase, go to the confirmation page and then complete the purchase. Every website spends significant amount of money acquiring those customers through various advertising and marketing channels and their ultimate goal is to increase the conversion rate for these users.</description>
+    </item>
+    
   </channel>
 </rss>
