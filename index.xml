@@ -6,10 +6,19 @@
     <description>Recent content on Varsha Bhat</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Oct 2019 20:33:00 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 22 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://vnb.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cohort Analysis For a Superstore</title>
+      <link>http://vnb.github.io/posts/cohort-analysis/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://vnb.github.io/posts/cohort-analysis/</guid>
+      <description>Data Source: https://www.kaggle.com/jr2ngb/superstore-data Cohorts are groups of users who signed up for a service at different points within an observed period. In the case of a superstore with data spanning for 4 years, a cohort index is a function of the month and year when they signed up. In order to perform a cohort analysis, we identify cohorts based on the time of sign-up for a service and by selecting metrics such as retention rates, profits etc to track cohorts over time.</description>
+    </item>
     
     <item>
       <title>Support Vector Machine</title>
