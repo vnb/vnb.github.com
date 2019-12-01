@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Varsha Bhat</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://vnb.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pricing optimization with A/B test</title>
+      <link>http://vnb.github.io/posts/ab-testing-pricing-optimization/</link>
+      <pubDate>Sat, 30 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://vnb.github.io/posts/ab-testing-pricing-optimization/</guid>
+      <description>Broadly speaking, A/B testing is a method to compare betweem two datasets that are randomly assigned to a certain treatment(treatment group) or no treament(control group). It has applications in web design, marketing and even in pricing optimization since the results are easy to obtain. This post mainly focuses on A/B testing for pricing optimization with the end goal to increase teh revenue.
+The main goal of an A/B test in the web space is to observe patterns user bahvior when changes are made to the website be it in terms of the design, available products ont he website or pricing for products and services.</description>
+    </item>
     
     <item>
       <title>Cohort Analysis For a Superstore</title>

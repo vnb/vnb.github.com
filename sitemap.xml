@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://vnb.github.io/posts/cohort-analysis/</loc>
-    <lastmod>2019-11-22T00:00:00+00:00</lastmod>
+    <loc>http://vnb.github.io/posts/</loc>
+    <lastmod>2019-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vnb.github.io/posts/</loc>
-    <lastmod>2019-11-22T00:00:00+00:00</lastmod>
+    <loc>http://vnb.github.io/posts/ab-testing-pricing-optimization/</loc>
+    <lastmod>2019-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://vnb.github.io/</loc>
+    <lastmod>2019-11-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vnb.github.io/posts/cohort-analysis/</loc>
     <lastmod>2019-11-22T00:00:00+00:00</lastmod>
   </url>
   
