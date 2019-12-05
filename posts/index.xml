@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Varsha Bhat</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://vnb.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Email Marketing Campaign - A Machine Learning Perspective</title>
+      <link>http://vnb.github.io/posts/email-marketing-/</link>
+      <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://vnb.github.io/posts/email-marketing-/</guid>
+      <description>This post is based on a data science project for the analysis of email marketing data as sampled below. The link to the jupyter notebook is here : https://github.com/vnb/Data-Science-Portfolio/blob/master/email%20marketing/Email%20Marketing.ipynb
+Sample dataset for an email marketing campaignEach email_id in the &amp;lsquo;email_id&amp;rsquo; field is unique and each of these have been sent email in the corresponding format as listed in the fields above at different days of the week and hour of the day.</description>
+    </item>
     
     <item>
       <title>Pricing optimization with A/B test</title>
@@ -17,7 +27,7 @@
       <pubDate>Sat, 30 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>http://vnb.github.io/posts/ab-testing-pricing-optimization/</guid>
-      <description>Broadly speaking, A/B testing is a method to compare betweem two datasets that are randomly assigned to a certain treatment(treatment group) or no treament(control group). It has applications in web design, marketing and even in pricing optimization since the results are easy to obtain. This post mainly focuses on A/B testing for pricing optimization with the end goal to increase teh revenue.
+      <description>Broadly speaking, A/B testing is a method to compare between two datasets that are randomly assigned to a certain treatment(treatment group) or no treament(control group). It has applications in web design, marketing and even in pricing optimization since the results are easy to obtain. This post mainly focuses on A/B testing for pricing optimization with the end goal to increase teh revenue.
 The main goal of an A/B test in the web space is to observe patterns user bahvior when changes are made to the website be it in terms of the design, available products ont he website or pricing for products and services.</description>
     </item>
     
@@ -32,9 +42,19 @@ In order to perform a cohort analysis, we can select groups of users based on th
     </item>
     
     <item>
+      <title>Fraud Detection</title>
+      <link>http://vnb.github.io/posts/fraud-detection/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://vnb.github.io/posts/fraud-detection/</guid>
+      <description>Fraud detection
+Most transactions on the internet take place through the use of credit/debit cards in order to complete a purchase. While most transactions are legitimately initiated by a customer, a small fraction of these transactions are fraudulent. Fraudulent transactions amount to 0.1% of all transactions but the losses from such activities could run upto billions of dollars per year. Therefore, it is important for e-commerce sites and banks likewise to be able to identify fraudulent behavior in a timely manner and in order to do this we can employ machine learning methods.</description>
+    </item>
+    
+    <item>
       <title>Support Vector Machine</title>
       <link>http://vnb.github.io/posts/support-vector-machine/</link>
-      <pubDate>Sun, 27 Oct 2019 20:33:00 -0700</pubDate>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>http://vnb.github.io/posts/support-vector-machine/</guid>
       <description>Introduction to SVM Support Vector Machines are the most commonly used supervised learning algorithms for classification problems. This post discusses the mathematics/intuition behind Linear SVM algorithms with a light introduction to Lagrange multipliers which is used for the optimization part.
@@ -42,13 +62,12 @@ Linear SVM: In a 2-D space there are 2 sets of points represented by their coord
     </item>
     
     <item>
-      <title>Fraud Detection</title>
-      <link>http://vnb.github.io/posts/fraud-detection/</link>
+      <title></title>
+      <link>http://vnb.github.io/posts/my-first-post/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://vnb.github.io/posts/fraud-detection/</guid>
-      <description>Fraud detection
-Most transactions on the internet take place through the use of credit/debit cards in order to complete a purchase. While most transactions are legitimately initiated by a customer, a small fraction of these transactions are fraudulent. Fraudulent transactions amount to 0.1% of all transactions but the losses from such activities could run upto billions of dollars per year. Therefore, it is important for e-commerce sites and banks likewise to be able to identify fraudulent behavior in a timely manner and in order to do this we can employ machine learning methods.</description>
+      <guid>http://vnb.github.io/posts/my-first-post/</guid>
+      <description></description>
     </item>
     
     <item>

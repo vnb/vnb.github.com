@@ -62,11 +62,45 @@
 
 		
 
-		<p>Broadly speaking, A/B testing is a method to compare betweem two datasets that are randomly assigned to a certain treatment(treatment group) or no treament(control group). It has applications in web design, marketing and even in pricing optimization since the results are easy to obtain. This post mainly focuses on A/B testing for pricing optimization with the end goal to increase teh revenue.</p>
+		<p>Broadly speaking, A/B testing is a method to compare between two datasets that are randomly assigned to a certain treatment(treatment group) or no treament(control group). It has applications in web design, marketing and even in pricing optimization since the results are easy to obtain. This post mainly focuses on A/B testing for pricing optimization with the end goal to increase teh revenue.</p>
 
 <p>The main goal of an A/B test in the web space is to observe patterns user bahvior when changes are made to the website be it in terms of the design, available products ont he website or pricing for products and services. For many products and services that are available through the internet it can be sometimes hard to determine the right price point that increases revenue while maintain the revenue rate. The following is a sample dataset for a pricing optimization problem.</p>
 
-<p><img src="/img/A/B 1.png" alt="Sample dataset" /></p>
+<p><img src="/img/A-B 1.png" alt="Sample dataset" /></p>
+
+<p><img src="/img/A-B 2.png" alt="Sample dataset" />
+In this sample, the same product is listed at two different prices. 39$ is the original price for the control group and 59$ is the new price for the treatment group. The main objective of this problem is to increase the revenue even if it comes at the cost of conversion rate. Some information about users are presented in the above table. Since we have data for only two months of testing, instead of using timestamps, I convert them into mm-dd-yyyy format. This makes it easier to aggregate and observe conversion rate on a data to day basis.
+Day to day mean conversion rates show that conversion rates for control group is higher than that of test group. However, just near the end of the test conversion rate for treatment group increased.</p>
+
+<p><img src="/img/A-B 3.png" alt="Sample dataset" />
+<img src="/img/A-B 4.png" alt="Sample dataset" /></p>
+
+<p>In general, conversion rate for test/treatment group is lower than control group. Since the objective of pricing obtimization is to increase revenue, slight decrease in conversion rate should be expected.
+<img src="/img/A-B 5.png" alt="Sample dataset" /></p>
+
+<p>In order to compare the test and control group, we must first check if the two groups are truly randomized. Comparison between two groups will help understand the effect of test/treatment on a given metric(revenue rate). Therefore, any differences in the distribution between test and control group should be taken into account. For example, the treatment may not be applied to users some cities or that some specific devices/operative systems might have been targeted for treatment compared to others.</p>
+
+<p>The following visualizations/plots will help determine if there were any changes in distributions for variables such as source, operating system, device. No significant difference in the distributions for these specific variables can be seen.
+<img src="/img/A-B 6.png" alt="Sample dataset" />
+<img src="/img/A-B 7.png" alt="Sample dataset" />
+<img src="/img/A-B 8.png" alt="Sample dataset" /></p>
+
+<p>Distribution w.r.t cities where A/B test was performed shows that for treatment was not applied to some users from the cities represented within the red box and then for some cities treatment and test groups were split unevenly. While these results may appear to be significant, the total percentage of cities with mismatching distributions is about 0.027% of the total data available.</p>
+
+<p>In order to be able to detect in patterns in the split between test and control decision trees maybe used. The train set consists of the same data as above and labels are 0 or 1 representing test or control groups. If there is a significant pattern that can be detected, the decision tree visualization will indicate so.</p>
+
+<p><img src="/img/A-B 9.png" alt="Sample dataset" /></p>
+
+<p>For this particular problem the following was the result. This means that the test and control datasets are completely randomized.
+<img src="/img/A-B 10.png" alt="Sample dataset" /></p>
+
+<p>The revenue to be expected from each group is the price of the respective group multiplied by the mean conversion rate. This gives 0.77$ expected value for customers in the control group and 0.91$ for customers in treatment group.</p>
+
+<p>The next step is essentially hypothesis testing. The null hypothesis is that there was no significant difference between test and control group and therefore a change in the pricing made no difference.
+<img src="/img/A-B 11.png" alt="Sample dataset" />
+Since the p-value is very low, it is very unlikely that any observable difference in the conversion rate between test and control group is purely due to chance. Therefore, the null hypothesis can be rejected. This essentially means that there is certainly a lower conversion rate when the price is increased but at the same time average revenue rate per customer is higher for the test group. This means that the A/B test was successful and that in order to increase the revenue, the product can be sold at 59$ instead of 39$.</p>
+
+<p>One thing to note however is that pricing optimization through A/B testing can get tricky when showing the same product at different prices. If the test is not administered properly, the same user might end up seeing the website displaying different price points. This could lead to some blow back. Therefore, it is important to ensure that the products offered at different price rates are slightly different from the other.</p>
 
 
 		
@@ -74,6 +108,7 @@
 
 	<div class="pagination">
 		<a href="/posts/cohort-analysis/" class="left arrow">&#8592;</a>
+		<a href="/posts/email-marketing-/" class="right arrow">&#8594;</a>
 
 		<a href="#" class="top">Top</a>
 	</div>
@@ -82,7 +117,7 @@
 
         		<footer>
 			<span>
-			&copy; <time datetime="2019-11-30 14:49:47.573381 -0800 PST m=&#43;0.344998455">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			&copy; <time datetime="2019-12-05 13:26:02.662543 -0800 PST m=&#43;0.085723492">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
 			</span>
 		</footer>
 

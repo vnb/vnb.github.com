@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://vnb.github.io/posts/</loc>
-    <lastmod>2019-11-30T00:00:00+00:00</lastmod>
+    <loc>http://vnb.github.io/posts/email-marketing-/</loc>
+    <lastmod>2019-12-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vnb.github.io/posts/ab-testing-pricing-optimization/</loc>
-    <lastmod>2019-11-30T00:00:00+00:00</lastmod>
+    <loc>http://vnb.github.io/posts/</loc>
+    <lastmod>2019-12-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://vnb.github.io/</loc>
+    <lastmod>2019-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vnb.github.io/posts/ab-testing-pricing-optimization/</loc>
     <lastmod>2019-11-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -23,8 +28,18 @@
   </url>
   
   <url>
+    <loc>http://vnb.github.io/posts/fraud-detection/</loc>
+    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://vnb.github.io/posts/support-vector-machine/</loc>
-    <lastmod>2019-10-27T20:33:00-07:00</lastmod>
+    <lastmod>2019-10-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://vnb.github.io/posts/my-first-post/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -33,10 +48,6 @@
   
   <url>
     <loc>http://vnb.github.io/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>http://vnb.github.io/posts/fraud-detection/</loc>
   </url>
   
   <url>

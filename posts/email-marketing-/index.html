@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Email Marketing Campaign - A Machine Learning Perspective &middot; Varsha Bhat</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Varsha Bhat" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Varsha Bhat</h2>
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="/about/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        Varsha Bhat
+        <br>
+        <span>on&nbsp;</span><time datetime="2019-12-05 00:00:00 &#43;0000 UTC">December 5, 2019</time>
+</div>
+		<h1 class="post-title">Email Marketing Campaign - A Machine Learning Perspective</h1>
+<div class="post-line"></div>
+
+		
+
+		
+
+<p>This post is based on a data science project for the analysis of email marketing data as sampled below. The link to the jupyter notebook is here : <a href="https://github.com/vnb/Data-Science-Portfolio/blob/master/email%20marketing/Email%20Marketing.ipynb">https://github.com/vnb/Data-Science-Portfolio/blob/master/email%20marketing/Email%20Marketing.ipynb</a></p>
+
+<p><img src="/img/EM1.png" alt="Sample dataset" />
+Sample dataset for an email marketing campaignEach email_id in the &lsquo;email_id&rsquo; field is unique and each of these have been sent email in the corresponding format as listed in the fields above at different days of the week and hour of the day. Emails have been assumed to be sent in a random manner without accounting for any customer behavior in the past or the segment of customers. There are two actions that users take : opening the email, clicking on the link inside the email. This is essentially similar to a customer funnel. A customer can only click on the link if the email had been opened in the first place.</p>
+
+<p>Each email_id in the &lsquo;email_id&rsquo; field is unique and each of these have been sent email in the corresponding format as listed in the fields above at different days of the week and hour of the day. Emails have been assumed to be sent in a random manner without accounting for any customer behavior in the past or the segment of customers. There are two actions that users take : opening the email, clicking on the link inside the email. This is essentially similar to a customer funnel. A customer can only click on the link if the email had been opened in the first place.</p>
+
+<p>Approximately 10% of the customers opened the email and of those customers 20% clicked on the link inside. It is very important to look for patterns on how customers responded to the emails in order to increase the click through rate.
+Features listed above that may help in determining if a customer will open the mail in the first place:</p>
+
+<ol>
+<li>Customer segment - by user country</li>
+<li>Time - hour and day of week</li>
+<li>User past purchases</li>
+</ol>
+
+<p>The other feature&rsquo;s pertaining to the email itself are irrelevant if the email was never opened in the first place.</p>
+
+<p>In order to improve the click through rate emails have to be sent to customers who are more likely open it in the first place. One intuition maybe that users have bought products in the past maybe more interested in opening the mail compared to users who have never made a purchase with the website before.
+<img src="/img/EM2.png" alt="Sample dataset" />
+Emails have been sent to customers who have made purchases in the past and also to those who have never made any purchases in the past. Those customers who have never made purchases are least likely to open the email. However, this segment must not be overlooked because they are potential future customers and emails are a way to acquire them.
+<img src="/img/EM3.png" alt="Sample dataset" />
+The above visualization is for email_ids that have never made a purchase before. It is very interesting to see that users from UK and US are more likely to open the email compared to users from Spain and France. Of those who opened the mail, users from US were more likely to click on the link inside. However, these conversion rates are still very small.
+Secondly, the timing of the email is very important. While seasonality might be a factor that will come into play(during black Friday users maybe more likely to open marketing emails) there is no yearly or monthly data to analyze. The only other time related data here is the hour and the day of the week.
+<img src="/img/EM4.png" alt="Sample dataset" />
+<img src="/img/EM5.png" alt="Sample dataset" />
+The user segment data shows that customers from UK and US are more likely to open and click the email.
+Based on all the information above a simple decision tree can be. As described above email_text and email_version can be omitted since these features do no matter for measuring the conversion rate for opening the email.
+A simple decision tree classifier yields following result:
+<img src="/img/EM6.png" alt="Sample dataset" />
+<img src="/img/EM7.png" alt="Sample dataset" />
+As expected, user past purchases, user segment and the day of the week play a big role. Conversion rates for mails that were sent on Friday and on weekends as suspected before resulted in lower percentage of customers opening the mail.</p>
+
+<p>As observed before, about 20% of the customer who opened the mails clicked inside it. Since the emails were sent in a random manner to begin with, the conversion rates are very low and the total number of users who clicked inside the mail is only 2% of all the customers to whom mail was sent. Therefore, even if an ML method such as above had to be applied, there is a huge class imbalance to start with and such a model would not be reliable.</p>
+
+<p>A similar decision tree to the above can be made for all email ids that opened the mail. The training set would consist of all the features except the hour and day of the week. For the sake of simplicity, the time data can be eliminated because now that the mail has been opened, does it matter what time of the day it was sent and the day of the week when it was sent? Since we do not have information on the time difference between when the mail was sent and when it was opened, these features can be neglected. The resulting decision tree would look like this:
+<img src="/img/EM8.png" alt="Sample dataset" />
+<img src="/img/EM9.png" alt="Sample dataset" /></p>
+
+<p>Again, user_past_purchases is one of the most important features followed by whether the email was personalized or not turns out to be important factors in determining whether a customer clicked insider the link or not.</p>
+
+<h2 id="conclusions">Conclusions:</h2>
+
+<ol>
+<li><p>There is a very high likelihood that users who have made at-least one purchase are more likely to open the mail compared to those who&rsquo;ve made no purchases. Therefore, in terms improving conversion rates for both opening and clicking inside the mail, targeting previous customers will lead to improvements. If mails are sent to users who have made at least 1 purchase before, then its 10% more likely that they will open the mail. Furthermore, customers who have made a purchase before and opened the mail are at least 5% more likely to click inside the mail compared to those who have never made a purchase before</p></li>
+
+<li><p>Customers from Spain and France were less likely to respond to mails by either opening or clicking on the link compared their US and UK counterparts. Language may be one reason for lower conversion rates.</p></li>
+
+<li><p>To a lesser extent, the time of the week when the mail was sent affects the conversion rate. Customers on an average opened and clicked inside the mail during the weekdays compared to weekends.</p></li>
+</ol>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/posts/ab-testing-pricing-optimization/" class="left arrow">&#8592;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			<span>
+			&copy; <time datetime="2019-12-05 13:26:02.664084 -0800 PST m=&#43;0.087264201">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>
