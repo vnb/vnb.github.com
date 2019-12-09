@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Song Recommendation using Machine Learning &middot; Varsha Bhat</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts.css">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Varsha Bhat" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Varsha Bhat</h2>
+				</a>
+				<ul>
+    
+    
+        <li>
+            <a href="/about/">
+                
+                <span>About</span>
+                
+            </a>
+        </li>
+    
+        <li>
+            <a href="/posts/">
+                
+                <span>Posts</span>
+                
+            </a>
+        </li>
+    
+</ul>
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        Varsha Bhat
+        <br>
+        <span>on&nbsp;</span><time datetime="2019-12-06 00:00:00 &#43;0000 UTC">December 6, 2019</time>
+</div>
+		<h1 class="post-title">Song Recommendation using Machine Learning</h1>
+<div class="post-line"></div>
+
+		
+
+		
+
+<p>This post is about building a simple song recommendation model using minimal user data. The following table is a preview of the dataset. My jupyter notebook solution can be found here: <a href="https://github.com/vnb/Data-Science-Portfolio/blob/master/Song%20Recommendation.ipynb">https://github.com/vnb/Data-Science-Portfolio/blob/master/Song%20Recommendation.ipynb</a></p>
+
+<p><img src="/img/Song 1.png" alt="Image with caption" /></p>
+
+<p>There are approximately 200 unique users identified by their &lsquo;user_id&rsquo; and 4000 rows with a unique &lsquo;id&rsquo; for each row representing an action taken by the user which in this case is playing a song. The song list is also limited to the Beatles and therefore it is much more easier to formulate a simple ML algorithm to predict what the next song a user played could be based on the songs a user listened to before.</p>
+
+<p>According to the data the following were the top 10 and bottom 10 states were the following based on total unique user count and user activity count. User activity can be defined as the total number of times a user takes an action of playing a song identified by the different timestamps at which those songs were listened to. This information can be aggregated based on each state to give the following results</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Top 10 states based on unique user_count            </th>
+<th align="center"> Bottom 10 states based on unique user count</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><img src="/img/SR 2.png" alt="Image with caption" /></td>
+<td align="center"> <img src="/img/SR 3.png" alt="Image with caption" /></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th align="center">Top 10 states based on user activity            </th>
+<th align="center"> Bottom 10 states based on user activity</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><img src="/img/SR 4.png" alt="Image with caption" /></td>
+<td align="center"> <img src="/img/SR 5.png" alt="Image with caption" /></td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="feature-engineering">Feature Engineering</h1>
+
+<p>To be able to build a model for the above data, a new set of features need to be built. Since there are limited number of users and a small playlist(containing only Beatles songs) new metrics can be easily created :</p>
+
+<ol>
+<li>Total number of times a song is played by each user</li>
+<li>Total number of time a song is played by all users - overall per day</li>
+<li>Total number of time a song is played by all users by state</li>
+<li>Order in which each song is played by a user by date</li>
+</ol>
+
+<p><img src="/img/SR 6.png" alt="Image with caption" /></p>
+
+<p>These metrics help in finding the most and least popular songs from the playlist</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"> Most popular songs            </th>
+<th align="center"> Least popular songs</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><img src="/img/SR 7.png" alt="Image with caption" /></td>
+<td align="center"> <img src="/img/SR 8.png" alt="Image with caption" /></td>
+</tr>
+</tbody>
+</table>
+
+<p> The second set of metrics are date related. Since date-time cannot be directly used in the model, delta of date-time can be used and further converted to integer values. Doing this will ensure that information regarding the time between sign up date and time difference between each plays are retained.</p>
+
+<h1 id="model">Model</h1>
+
+<p>To create song recommendation system the model must be able to predict what song the user is most likely to play next. Date related columns can be deleted since all the information related to dates are retained in the new features created previously and then &lsquo;pandas.get_dummy&rsquo; to convert categorical data such as user_state and user_id into one-hot encodings.</p>
+
+<p>Once this is done any classifier can be used to train and test the dataset but I found adaBoost classifier to be the most accurate(in terms of F1 score) in predicting the song a user is likely to listen next. This model can be continuo-sly updated for the same set set of users as they listen to more songs in order to improve the song recommendation model. </p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/posts/email-marketing-/" class="left arrow">&#8592;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+</main>
+
+
+        		<footer>
+			<span>
+			&copy; <time datetime="2019-12-09 14:45:23.16808 -0800 PST m=&#43;0.114502395">2019</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

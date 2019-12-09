@@ -6,10 +6,20 @@
     <description>Recent content on Varsha Bhat</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://vnb.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Song Recommendation using Machine Learning</title>
+      <link>http://vnb.github.io/posts/song-recommendation/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://vnb.github.io/posts/song-recommendation/</guid>
+      <description>This post is about building a simple song recommendation model using minimal user data. The following table is a preview of the dataset. My jupyter notebook solution can be found here: https://github.com/vnb/Data-Science-Portfolio/blob/master/Song%20Recommendation.ipynb
+There are approximately 200 unique users identified by their &amp;lsquo;user_id&amp;rsquo; and 4000 rows with a unique &amp;lsquo;id&amp;rsquo; for each row representing an action taken by the user which in this case is playing a song. The song list is also limited to the Beatles and therefore it is much more easier to formulate a simple ML algorithm to predict what the next song a user played could be based on the songs a user listened to before.</description>
+    </item>
     
     <item>
       <title>Email Marketing Campaign - A Machine Learning Perspective</title>
@@ -62,22 +72,22 @@ Linear SVM: In a 2-D space there are 2 sets of points represented by their coord
     </item>
     
     <item>
+      <title>About</title>
+      <link>http://vnb.github.io/about/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://vnb.github.io/about/</guid>
+      <description>I am a data scientist with background in chemical engineering. In my previous job, I worked with large amounts of sensor data, created dashboards for multiple hydrocarbon storage wells and made technical recommendations. This helped to optimize operating costs and also avert technical malfunctions. It was during this time that I discovered my passion for programming and statistics.
+Around the same time I began to learn more about data science through a various online resources and then putting them to test by tackling kaggle challenges.</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>http://vnb.github.io/posts/my-first-post/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://vnb.github.io/posts/my-first-post/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>http://vnb.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://vnb.github.io/about/</guid>
-      <description>I am a data scientist with background in chemical engineering. In my previous job, I worked with large amounts of sensor data, created dashboards for multiple hydrocarbon storage wells and made technical recommendations. This helped to optimize operating costs and also avert technical malfunctions. It was during this time that I discovered my passion for programming and statistics.
-Around the same time I began to learn more about data science through a various online resources and then putting them to test by tackling kaggle challenges.</description>
     </item>
     
     <item>

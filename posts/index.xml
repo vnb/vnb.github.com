@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Varsha Bhat</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://vnb.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Song Recommendation using Machine Learning</title>
+      <link>http://vnb.github.io/posts/song-recommendation/</link>
+      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://vnb.github.io/posts/song-recommendation/</guid>
+      <description>This post is about building a simple song recommendation model using minimal user data. The following table is a preview of the dataset. My jupyter notebook solution can be found here: https://github.com/vnb/Data-Science-Portfolio/blob/master/Song%20Recommendation.ipynb
+There are approximately 200 unique users identified by their &amp;lsquo;user_id&amp;rsquo; and 4000 rows with a unique &amp;lsquo;id&amp;rsquo; for each row representing an action taken by the user which in this case is playing a song. The song list is also limited to the Beatles and therefore it is much more easier to formulate a simple ML algorithm to predict what the next song a user played could be based on the songs a user listened to before.</description>
+    </item>
     
     <item>
       <title>Email Marketing Campaign - A Machine Learning Perspective</title>
